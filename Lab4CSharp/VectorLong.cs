@@ -134,7 +134,7 @@ namespace Lab4CSharp
         {
             for (int i = 0; i < vec.size; i++)
             {
-                vec.IntArray[i]++;
+                vec.IntArray[i]--;
             }
             return vec;
         }
@@ -175,24 +175,26 @@ namespace Lab4CSharp
         {
             if (vec.size == 0)
             {
-                return false;
+                return true;
             }
 
             for (int i = 0; i < vec.size; i++)
             {
                 if (vec[i] == 0)
-                    return false;
+                {
+                    return true;
+                }
             }
 
-            return true;
+            return false;
         }
 
         public static VectorLong operator ~(VectorLong vec)
         {
-            VectorLong newVector = vec;
-            for (int i = 0; i < newVector.size; i++)
+            VectorLong newVector = new VectorLong(vec.size);
+            for (int i = 0; i < vec.size; i++)
             {
-                newVector[i] = ~newVector[i];
+                newVector[i] = ~vec[i];
             }
 
             return newVector;
@@ -252,7 +254,14 @@ namespace Lab4CSharp
             {
                 long val1 = (i < vec1.size) ? vec1[i] : 0;
                 long val2 = (i < vec2.size) ? vec2[i] : 0;
-                result[i] = val1 / val2;
+
+                if (val2 != 0)
+                {
+                    result[i] = val1 / val2;
+                } else
+                {
+                    result[i] = 0;
+                }
             }
 
             return result;
@@ -267,7 +276,14 @@ namespace Lab4CSharp
             {
                 long val1 = (i < vec1.size) ? vec1[i] : 0;
                 long val2 = (i < vec2.size) ? vec2[i] : 0;
-                result[i] = val1 % val2;
+
+                if (val2 != 0)
+                {
+                    result[i] = val1 % val2;
+                } else
+                {
+                    result[i] = 0;
+                }
             }
 
             return result;
@@ -477,10 +493,21 @@ namespace Lab4CSharp
             return vec ^ vectorValue;
         }
 
-        public static VectorLong operator &(VectorLong vec, long value)
+        public static VectorLong operator &(VectorLong vec, int value)
         {
-            VectorLong vectorValue = new VectorLong(vec.size, value);
-            return vec & vectorValue;
+            VectorLong result = new VectorLong(vec.size);
+
+            for (int i = 0; i < vec.size; i++)
+            {
+                result[i] = vec[i] & value;
+            }
+
+            return result;
+        }
+
+        public void toString()
+        {
+            this.Output();
         }
     }
 }
