@@ -1,6 +1,5 @@
 ﻿
 using Lab4CSharp;
-using Microsoft.VisualBasic.FileIO;
 
 Console.WriteLine("Lab4 C# ");
 void Test()
@@ -36,7 +35,7 @@ void Test()
     Console.WriteLine("1. Vector 1 Output:");
     vector1.Output();
 
-    Console.WriteLine("2. Vector 1 Output:");
+    Console.WriteLine("2. Vector 2 Output:");
     vector2.Output();
 
     Console.WriteLine("2. num vectors: " + VectorLong.GetNumVectors());
@@ -109,4 +108,3 @@ void Test()
     Console.WriteLine("24. call ~Desctructor");
 }
 Test();
-
