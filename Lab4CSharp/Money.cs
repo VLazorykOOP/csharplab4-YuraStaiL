@@ -72,7 +72,7 @@ namespace Lab4CSharp
             return copy;
         }
 
-        public static implicit operator string(Money m) => m.nominal.ToString();
+        public static implicit operator string(Money m) => m.ToString();
         public static explicit operator Money(string str) => new Money(Int32.Parse(str.Split(',')[0]), Int32.Parse(str.Split(',')[1]));
 
         public override string ToString()

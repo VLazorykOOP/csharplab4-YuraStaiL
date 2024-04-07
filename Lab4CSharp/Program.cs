@@ -5,6 +5,32 @@ using Microsoft.VisualBasic.FileIO;
 Console.WriteLine("Lab4 C# ");
 void Test()
 {
+    Console.WriteLine("STUDENT: Faryna Yurii, 341b");
+
+    Console.WriteLine("Task 1:");
+    Money money = new Money(50, 100);
+    Console.WriteLine("1. Indexer: " + money[0] + ", " + money[1]);
+    Console.WriteLine("2. ++");
+
+    money++;
+    Console.WriteLine(money);
+
+    Console.WriteLine("3. --");
+    Console.WriteLine("4. implicit - to string");
+    money--;
+    Console.WriteLine(money);
+
+    Console.WriteLine("5. explicit - to Money");
+    string str = "23,100";
+    Money strMoney = (Money) str;
+    Console.WriteLine(strMoney);
+
+    Console.WriteLine("6. (!) " + !money);
+
+    Console.WriteLine("7. (vec + 3) " + (money + 3));
+
+
+    Console.WriteLine("\nTask 2:");
     VectorLong vector1 = new VectorLong(2, 2);
     VectorLong vector2 = new VectorLong(3, 3);
     Console.WriteLine("1. Vector 1 Output:");
