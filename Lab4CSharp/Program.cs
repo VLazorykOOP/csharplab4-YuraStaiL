@@ -1,9 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-/// <summary>
-///  Top-level statements 
-///  Код програми (оператори)  вищого рівня
-/// </summary>
-///
+﻿
 Console.WriteLine("Lab4 C# ");
 AnyFunc();
 

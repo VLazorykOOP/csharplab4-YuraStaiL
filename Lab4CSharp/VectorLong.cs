@@ -273,34 +273,214 @@ namespace Lab4CSharp
             return result;
         }
 
+        public static VectorLong operator |(VectorLong vec1, VectorLong vec2)
+        {
+            uint maxSize = Math.Max(vec1.size, vec2.size);
+            VectorLong result = new VectorLong(maxSize);
+
+            for (int i = 0; i < maxSize; i++)
+            {
+                long val1 = (i < vec1.size) ? vec1[i] : 0;
+                long val2 = (i < vec2.size) ? vec2[i] : 0;
+                result[i] = val1 | val2;
+            }
+
+            return result;
+        }
+
+        public static VectorLong operator &(VectorLong vec1, VectorLong vec2)
+        {
+            uint maxSize = Math.Max(vec1.size, vec2.size);
+            VectorLong result = new VectorLong(maxSize);
+
+            for (int i = 0; i < maxSize; i++)
+            {
+                long val1 = (i < vec1.size) ? vec1[i] : 0;
+                long val2 = (i < vec2.size) ? vec2[i] : 0;
+                result[i] = val1 & val2;
+            }
+
+            return result;
+        }
+
+        public static VectorLong operator ^(VectorLong vec1, VectorLong vec2)
+        {
+            uint maxSize = Math.Max(vec1.size, vec2.size);
+            VectorLong result = new VectorLong(maxSize);
+
+            for (int i = 0; i < maxSize; i++)
+            {
+                long val1 = (i < vec1.size) ? vec1[i] : 0;
+                long val2 = (i < vec2.size) ? vec2[i] : 0;
+                result[i] = val1 ^ val2;
+            }
+
+            return result;
+        }
+
+        public static VectorLong operator <<(VectorLong vec1, int value)
+        {
+            VectorLong result = new VectorLong(vec1.size);
+
+            for (int i = 0; i < vec1.size; i++)
+            {
+                result[i] = vec1[i] << value;
+            }
+
+            return result;
+        }
+
+        public static VectorLong operator >>(VectorLong vec1, int value)
+        {
+            VectorLong result = new VectorLong(vec1.size);
+
+            for (int i = 0; i < vec1.size; i++)
+            {
+                result[i] = vec1[i] >> value;
+            }
+
+            return result;
+        }
+
+        public static bool operator ==(VectorLong vec1, VectorLong vec2)
+        {
+            if (vec1.size != vec2.size) return false;
+
+            for (int i = 0; i < vec1.size; i++)
+            {
+                if (vec1[i] != vec2[i])
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public static bool operator !=(VectorLong vec1, VectorLong vec2)
+        {
+            return !(vec1 == vec2);
+        }
+
+        public static bool operator >(VectorLong vec1, VectorLong vec2)
+        {
+            uint maxSize = Math.Max(vec1.size, vec2.size);
+            VectorLong result = new VectorLong(maxSize);
+
+            for (int i = 0; i < maxSize; i++)
+            {
+                long val1 = (i < vec1.size) ? vec1[i] : 0;
+                long val2 = (i < vec2.size) ? vec2[i] : 0;
+                if (val1 < val2)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public static bool operator >=(VectorLong vec1, VectorLong vec2)
+        {
+            uint maxSize = Math.Max(vec1.size, vec2.size);
+            VectorLong result = new VectorLong(maxSize);
+
+            for (int i = 0; i < maxSize; i++)
+            {
+                long val1 = (i < vec1.size) ? vec1[i] : 0;
+                long val2 = (i < vec2.size) ? vec2[i] : 0;
+                if (val1 <= val2)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public static bool operator <(VectorLong vec1, VectorLong vec2)
+        {
+            uint maxSize = Math.Max(vec1.size, vec2.size);
+            VectorLong result = new VectorLong(maxSize);
+
+            for (int i = 0; i < maxSize; i++)
+            {
+                long val1 = (i < vec1.size) ? vec1[i] : 0;
+                long val2 = (i < vec2.size) ? vec2[i] : 0;
+                if (val1 > val2)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public static bool operator <=(VectorLong vec1, VectorLong vec2)
+        {
+            uint maxSize = Math.Max(vec1.size, vec2.size);
+            VectorLong result = new VectorLong(maxSize);
+
+            for (int i = 0; i < maxSize; i++)
+            {
+                long val1 = (i < vec1.size) ? vec1[i] : 0;
+                long val2 = (i < vec2.size) ? vec2[i] : 0;
+                if (val1 >= val2)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+
         public static VectorLong operator +(VectorLong vec, long value)
         {
-            VectorLong result = new VectorLong(vec.size, value);
-            return result + vec;
+            VectorLong vectorValue = new VectorLong(vec.size, value);
+            return vectorValue + vec;
         }
 
         public static VectorLong operator -(VectorLong vec, long value)
         {
-            VectorLong result = new VectorLong(vec.size, value);
-            return vec - result;
+            VectorLong vectorValue = new VectorLong(vec.size, value);
+            return vec - vectorValue;
         }
 
         public static VectorLong operator *(VectorLong vec, long value)
         {
-            VectorLong result = new VectorLong(vec.size, value);
-            return vec * result;
+            VectorLong vectorValue = new VectorLong(vec.size, value);
+            return vec * vectorValue;
         }
 
         public static VectorLong operator /(VectorLong vec, long value)
         {
-            VectorLong result = new VectorLong(vec.size, value);
-            return vec / result;
+            VectorLong vectorValue = new VectorLong(vec.size, value);
+            return vec / vectorValue;
         }
 
         public static VectorLong operator %(VectorLong vec, long value)
         {
-            VectorLong result = new VectorLong(vec.size, value);
-            return vec % result;
+            VectorLong vectorValue = new VectorLong(vec.size, value);
+            return vec % vectorValue;
+        }
+
+        public static VectorLong operator |(VectorLong vec, long value)
+        {
+            VectorLong vectorValue = new VectorLong(vec.size, value);
+            return vec | vectorValue;
+        }
+
+        public static VectorLong operator ^(VectorLong vec, long value)
+        {
+            VectorLong vectorValue = new VectorLong(vec.size, value);
+            return vec ^ vectorValue;
+        }
+
+        public static VectorLong operator &(VectorLong vec, long value)
+        {
+            VectorLong vectorValue = new VectorLong(vec.size, value);
+            return vec & vectorValue;
         }
     }
 }
